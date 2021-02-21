@@ -83,3 +83,43 @@
 #         int_x += 1
 
 # print(total)
+
+
+# ABC088B
+# n = int(input())
+# a = list(map(int, input().split()))
+# b = sorted(a)[::-1]
+# alice_list = [b[i] for i in range(n) if i%2 == 0]
+# bob_list = [b[i] for i in range(n) if i%2 == 1]
+
+# answer = sum(alice_list) - sum(bob_list)
+# print(answer)
+
+
+# ABC085B
+# n = int(input())
+# d = [int(input()) for i in range(n)]
+
+# e = sorted(d)[::-1]
+# f = [e[i] for i in range(n) if i == 0 or e[i] != e[i - 1]]
+
+# print(len(f))
+
+
+# ABC085C
+# n, y = map(int, input().split())
+# answers = []
+
+# for a in range(n + 1):
+#     for b in range(n + 1 - a):
+#         c = n - a - b
+#         if 10000*c + 5000*b + 1000*a == y:
+#                 answers.append([c, b, a])
+
+# if len(answers) == 0:
+#     print(-1, -1, -1)
+# else:
+#     answer = answers[0]
+#     for i in answer:
+#         print(i, end=" ")
+
