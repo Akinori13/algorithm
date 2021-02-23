@@ -1,5 +1,5 @@
 # AtCoder Beginner Contest 192 [A - D]
-A-Star
+# A-Star
 import math
 
 answer = 0
