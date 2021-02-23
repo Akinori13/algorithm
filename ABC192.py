@@ -1,107 +1,112 @@
 # AtCoder Beginner Contest 192 [A - D]
-# A-Star
-# import math
+A-Star
+import math
 
-# answer = 0
+answer = 0
 
-# x = int(input())
-# n = math.ceil(x/100)
-# coins = n*100 - x
+x = int(input())
+n = math.ceil(x/100)
+coins = n*100 - x
 
-# if coins > 0:
-#     answer = coins
-# else:
-#     answer = 100
+if coins > 0:
+    answer = coins
+else:
+    answer = 100
 
-# print(answer)
+print(answer)
 
 
 
 
 # B-uNrEaDaBlE sTrInG
-# s = input()
+s = input()
 
-# answer = "Yes"
+answer = "Yes"
 
-# for i in range(len(s)):
-#     if i%2 == 0:
-#         if s[i].islower():
-#             continue
-#         else:
-#             answer = "No"
-#             break
-#     else:
-#         if s[i].isupper():
-#             continue
-#         else:
-#             answer = "No"
-#             break
+for i in range(len(s)):
+    if i%2 == 0:
+        if s[i].islower():
+            continue
+        else:
+            answer = "No"
+            break
+    else:
+        if s[i].isupper():
+            continue
+        else:
+            answer = "No"
+            break
 
-# print(answer)
+print(answer)
 
 
 
 
 # C-Kaprekar Number
-# n, k = map(int, input().split())
-# a = [n]
+n, k = map(int, input().split())
+a = [n]
 
-# for i in range(k):
-#     el = str(a[i])
-#     b = []
-#     for j in range(len(el)):
-#         b.append(el[j])
-#     enLarged_el = sorted(b)[::-1]
-#     enSmalled_el = sorted(b)
+for i in range(k):
+    el = str(a[i])
+    b = []
+    for j in range(len(el)):
+        b.append(el[j])
+    enLarged_el = sorted(b)[::-1]
+    enSmalled_el = sorted(b)
     
-#     str_max_el = ""
-#     for j in enLarged_el:
-#         str_max_el += j
+    str_max_el = ""
+    for j in enLarged_el:
+        str_max_el += j
     
-#     str_min_el = ""
-#     for j in enSmalled_el:
-#         str_min_el += j
+    str_min_el = ""
+    for j in enSmalled_el:
+        str_min_el += j
 
-#     max_el = int(str_max_el)
-#     min_el = int(str_min_el)
+    max_el = int(str_max_el)
+    min_el = int(str_min_el)
 
-#     a.append(max_el - min_el)
+    a.append(max_el - min_el)
 
-# print(a[k])
+print(a[k])
 
 
 
 
 # D-Base n
-# x = input()
-# m = int(input())
+x = input()
+m = int(input())
 
-# d = 0
-# for i in range(len(x)):
-#     if int(x[i]) > d:
-#         d = int(x[i])
-#     else:
-#         continue
+d = 0
+for i in range(len(x)):
+    if int(x[i]) > d:
+        d = int(x[i])
+    else:
+        continue
 
-# def binary_search(data, left, right, value):
-#     while left <= right:
-#         mid = (left + right) // 2
-#         el = 0
-#         for i in range(len(data)):
-#             el += int(data[i])*((mid)**(len(data) - i - 1))
-#         if el == value:
-#             return mid
-#         elif el < value:
-#             left = mid + 1
-#         else:
-#             right = mid - 1
-#     return mid - 1
+def binary_search(data, left, right, value):
+    is_bigger = True
+    while left <= right:
+        mid = (left + right) // 2
+        el = 0
+        for i in range(len(data)):
+            el += int(data[i])*((mid)**(len(data) - i - 1))
+        if el == value:
+            return mid
+        elif el < value:
+            is_bigger = False
+            left = mid + 1
+        else:
+            is_bigger = True
+            right = mid - 1
+    if is_bigger:
+        return right
+    else:
+        return left
 
-# # Solve
-# if len(x) == 1:
-#         if  int(x) <= m:
-#             answer = 1
-# else:
-#     answer = binary_search(x, 0, 10**18, m) - d
+if len(x) == 1:
+        if  int(x) <= m:
+            answer = 1
+else:
+    answer = binary_search(x, 0, 10**18, m) - d
 
-# print(answer)
+print(answer)
