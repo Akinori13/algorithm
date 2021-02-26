@@ -1,4 +1,4 @@
-# AtCoder Beginner Contest 188
+# AtCoder Beginner Contest 187
 # A-Large Digits
 a, b = map(int, input().split())
 
